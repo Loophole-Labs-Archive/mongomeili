@@ -77,20 +77,20 @@ The response will look like this:
 
 ```json
 {
-  hits: [
+  "hits": [
     {
-      _id: '5f86a08c27772b15560ff4af',
-      title: 'Fast and Furious',
-      director: 'Rob Cohen',
-      year: '2001'
+      "_id": "5f86a08c27772b15560ff4af",
+      "title": "Fast and Furious",
+      "director": "Rob Cohen",
+      "year": "2001"
     }
   ],
-  offset: 0,
-  limit: 20,
-  nbHits: 1,
-  exhaustiveNbHits: false,
-  processingTimeMs: 0,
-  query: 'furious'
+  "offset": 0,
+  "limit": 20,
+  "nbHits": 1,
+  "exhaustiveNbHits": false,
+  "processingTimeMs": 0,
+  "query": "furious"
 }
 ```
 
@@ -104,15 +104,15 @@ Bug reports and pull requests are welcome on GitHub at [https://github.com/Looph
 
 ## License
 
-The Parasite project is available as open source under the terms of the [Mozilla Public License Version 2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+The MongoMeili project is available as open source under the terms of the [Mozilla Public License Version 2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
 ## Code of Conduct
 
-Everyone interacting in the Parasite project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/Loophole-Labs/parasite/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the MongoMeili project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/Loophole-Labs/mongomeili/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## Project Managed By:
-![Loophole Labs][LOOPHOLELABS]
+![Loophole Labs][LOOPHOLELABS](https://loopholelabs.io)
 
 [HOMEPAGE]: https://github.com/Loophole-Labs/mongomeili
 [LOOPHOLELABS]: https://cdn.loopholelabs.io/loopholelabs/LoopholeLabsLogo.svg
