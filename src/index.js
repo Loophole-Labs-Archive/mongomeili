@@ -12,11 +12,11 @@ const validateOptions = function (options) {
 const createMeiliMongooseModel = function ({ index, attributesToIndex }) {
   // MeiliMongooseModel is of type Mongoose.Model
   class MeiliMongooseModel {
-    
+
     // Clear Meili index
     static async clearMeiliIndex() {
       await index.deleteAllDocuments();
-      await this.collection.update({ _meiliIndex: true }, { $set: { _meiliIndex: false } });
+      await this.collection.updateMany({ _meiliIndex: true }, { $set: { _meiliIndex: false } });
     }
   
     // Clear Meili index
@@ -71,7 +71,7 @@ const createMeiliMongooseModel = function ({ index, attributesToIndex }) {
       const object = _.pick(this.toJSON(), attributesToIndex);
       await index.addDocuments([object]);
 
-      await this.collection.update(
+      await this.collection.updateMany(
         { _id: this._id },
         { $set: { _meiliIndex: true } }
       );
@@ -116,9 +116,11 @@ const createMeiliMongooseModel = function ({ index, attributesToIndex }) {
 }
 
 module.exports = function mongoMeili(schema, options) {
+
   // Vaidate Options for mongoMeili
   validateOptions(options);
 
+  // Add meiliIndex to schema
   schema.add({
     _meiliIndex: { 
       type: Boolean, 
@@ -130,23 +132,25 @@ module.exports = function mongoMeili(schema, options) {
 
   const { host, apiKey, indexName } = options;
 
+  // Setup MeiliSearch Client
   const client = new MeiliSearch({
     host: host,
     apiKey: apiKey
   });
   
-  const index = client.getOrCreateIndex(indexName).then(function (result) {
-    const index = result;
-    return index;
-  });
+  // Asynchronously create the index
+  client.getOrCreateIndex(indexName);
+
+  // Setup the index to search for this schema
+  const index = client.getIndex(indexName);
 
   const attributesToIndex = [..._.reduce(schema.obj, function (results, value, key) {
-    return [...results, key];
+    return value.meiliIndex ? [...results, key] : results;
   }, []), '_id'];
 
   schema.loadClass(createMeiliMongooseModel({ index, attributesToIndex }));
 
-  // register hooks
+  // Register hooks
   schema.post('save', function (doc) { doc.postSaveHook() });
   schema.post('update', function (doc) { doc.postUpdateHook() });
   schema.post('remove', function (doc) { doc.postRemoveHook() });
