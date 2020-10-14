@@ -1,6 +1,6 @@
 {
   "name": "mongomeili",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Keep your Mongoose Schemas synced with MeiliSearch",
   "homepage": "https://github.com/loophole-labs/mongomeili",
   "main": "dist/index.js",
@@ -25,5 +25,6 @@
     "lodash": "^4.17.20",
     "meilisearch": "^0.14.0",
     "mongoose": "^5.10.9"
-  }
+  },
+  "keywords": ["mongodb", "meilisearch", "mongoose", "database", "search", "sync"]
 }
