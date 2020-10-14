@@ -69,7 +69,7 @@ Clears your MeiliSearch Index and sets `_meiliIndex = false` on the collection
 Set one or more settings of the MeiliSearch index, the full settings list is available [here](https://docs.meilisearch.com/references/settings.html#get-settings).
 
 #### `Model.meiliSearch({ query: string, params?: {}, populate?: boolean }): Promise`
-Search into your MeiliSearch index for a specific query. You can customize the search parameters and populate information not indexed from the mongoDB collection as well.
+Search your MeiliSearch index for a specific query. You can customize the search parameters and populate information not indexed from the mongoDB collection as well.
 
 You can find the full list of search parameters [here](https://docs.meilisearch.com/references/search.html#search-in-an-index-with-post-route).
 
@@ -112,7 +112,7 @@ Everyone interacting in the MongoMeili project’s codebases, issue trackers, ch
 
 
 ## Project Managed By:
-![Loophole Labs][LOOPHOLELABS](https://loopholelabs.io)
+![Loophole Labs][LOOPHOLELABS]
 
 [HOMEPAGE]: https://github.com/Loophole-Labs/mongomeili
 [LOOPHOLELABS]: https://cdn.loopholelabs.io/loopholelabs/LoopholeLabsLogo.svg

@@ -1,7 +1,7 @@
 {
   "name": "mongomeili",
-  "version": "0.1.7",
-  "description": "Keep your Mongoose Schemas synced with MeiliSearch",
+  "version": "0.1.0",
+  "description": "Keep your MongooseJS Schemas synced with MeiliSearch",
   "homepage": "https://github.com/loophole-labs/mongomeili",
   "main": "dist/index.js",
   "files": [
